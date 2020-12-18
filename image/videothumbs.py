@@ -3,7 +3,7 @@
 django-videothumbs
 """
 
-from six import StringIO
+from io import BytesIO
 from django.conf.global_settings import FILE_UPLOAD_TEMP_DIR
 import math
 import os
@@ -105,7 +105,7 @@ def generate_thumb(storage, video_path, thumb_size=None, format='jpg', frames=10
     else:
         image2 = image
 
-    io = StringIO()
+    io = BytesIO()
 
     # PNG and GIF are the same, JPG is JPEG
     if format.upper() == 'JPG':
